@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="view_honestus_sql_report_tree" model="ir.ui.view">
+        <field name="name">honestus.sql.report.tree</field>
+        <field name="model">honestus.sql.task.report</field>
+        <field name="arch" type="xml">
+            <tree string="Honestus Report" create="false" edit="false" delete="false" >
+                <field name="customer" />
+                <field name="order_reference" />
+                <field name="product_code" />
+                <field name="honestus_code"/>
+                <field name="unit_price"/>
+                <field name="honestus_price"/>
+                <field name="margin"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_honestus_sql_report_search" model="ir.ui.view">
+        <field name="model">honestus.sql.task.report</field>
+        <field name="arch" type="xml">
+            <search string="Attachments">
+                <group expand="0" string="Group By">
+                    <filter string="Customer" name="customer" domain="[]" context="{'group_by':'customer'}"/>
+                    <filter string="Order Reference" name="order_reference" domain="[]" context="{'group_by':'order_reference'}"/>
+                    <filter string="Product Code" name="product_code" domain="[]" context="{'group_by':'product_code'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_honestus_sql_report" model="ir.actions.act_window">
+        <field name="name">Honestus SQL Report</field>
+        <field name="res_model">honestus.sql.task.report</field>
+        <field name="context">{'search_default_customer': 1}</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="menu_honestus_sql_report"
+              parent="sale.sale_menu_root"
+              name="Honestus SQL Report"
+              action="action_honestus_sql_report"/>
+
+</odoo>

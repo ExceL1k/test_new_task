@@ -1,0 +1,14 @@
+<odoo>
+    <record id="product_product_view_form_normal_honestus_test_inherit" model="ir.ui.view">
+        <field name="name">product.product.view.form.norma.honestus.test.inherit</field>
+        <field name="model">product.product</field>
+        <field name="priority">4</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_tag_ids']" position="after">
+                <field name="honestus_code" attrs="{'required': [('default_code', 'not in', [False, ''])]}"/>
+                <field name="honestus_price"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

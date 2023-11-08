@@ -1,0 +1,10 @@
+<odoo>
+    <template id="portal_my_details_fields_honestus_inherit" inherit_id="portal.portal_my_details_fields">
+        <xpath expr="//label[@for='phone']/.." position="after">
+            <div t-attf-class="mb-3 #{error.get('mobile') and 'o_has_error' or ''} col-xl-6">
+                <label class="col-form-label" for="mobile">Mobile</label>
+                <input type="tel" name="mobile" t-attf-class="form-control #{error.get('mobile') and 'is-invalid' or ''}" t-att-value="mobile or partner.mobile" />
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,10 @@
+<odoo>
+    <template id="signup_fields_honestus_inherit" inherit_id="auth_signup.fields">
+        <xpath expr="//label[@for='name']/.." position="after">
+            <div class="form-group field-phone">
+                <label for="mobile">Mobile</label>
+                <input type="phone" name="mobile" id="mobile" class="form-control form-control-sm"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="honestus_test.report_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+            <xpath expr="//span[@t-field='line.name']" position="replace">
+                <span t-field="line.product_id.honestus_code"/>
+                <span t-field="line.product_id.name"/>
+            </xpath>
+            <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+                <t t-if="line.product_id.honestus_price">
+                    <span t-field="line.product_id.honestus_price"/>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>
